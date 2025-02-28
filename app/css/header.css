@@ -1,0 +1,153 @@
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: #5f3f7e;
+    color: white;
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+
+/* Header Title */
+.header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    flex-grow: 1;
+}
+
+.header h1 a {
+    text-decoration: none;
+    color: #f2f2f2;
+    position: relative;
+}
+
+/* Underline Animation for Header Title */
+.header h1 a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.header h1 a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Navigation Bar */
+.tnav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-grow: 2;
+}
+
+/* Navigation Links */
+.tnav a {
+    color: #f2f2f2;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Underline Animation for Nav Links */
+.tnav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.tnav a:hover::after {
+    transform: scaleX(1);
+}
+
+.tnav a:hover {
+    color: #ddd;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Rotate the icon when the menu is open */
+.menu-toggle.open {
+    transform: rotate(90deg);
+}
+
+/* Mobile Menu (Hidden by Default) */
+@media (max-width: 900px) {
+    .header {
+        padding: 1rem;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 2rem;
+        margin-left: auto;
+    }
+
+    .tnav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #5f3f7e;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .tnav.active {
+        display: flex;
+    }
+
+    .tnav a {
+        padding: 1rem;
+        display: block;
+        font-size: 1.2rem;
+    }
+}
+
+/* Mobile Optimizations (Up to 600px) */
+@media (max-width: 600px) {
+    .header {
+        font-size: 1.2rem;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .menu-toggle {
+        font-size: 2.5rem;
+    }
+
+    .tnav a {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookTrade - Login / Sign Up</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/loadComponents.js"></script>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- Login & Signup Section -->
+    <div class="auth-wrapper">
+        <!-- Login Section -->
+        <div class="auth-section">
+            <h2>Login</h2>
+            <form>
+                <label for="login-username">Username</label>
+                <input type="text" id="login-username" placeholder="Enter your username" required>
+                
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" placeholder="Enter your password" required>
+                
+                <p class="or">Or continue with</p>
+                <div class="social-login">
+                    <button class="facebook"></button>
+                    <button class="google"></button>
+                    <button class="apple"></button>
+                </div>
+
+                <button type="submit" class="auth-btn">Login</button>
+            </form>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- Sign Up Section -->
+        <div class="auth-section">
+            <h2>Sign Up</h2>
+            <form>
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" placeholder="Enter your email" required>
+                
+                <label for="signup-username">Username</label>
+                <input type="text" id="signup-username" placeholder="Choose a username" required>
+                
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" placeholder="Enter your password" required>
+                
+                <label for="signup-confirm-password">Confirm Password</label>
+                <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required>
+                
+                <p class="or">Or continue with</p>
+                <div class="social-login">
+                    <button class="facebook"></button>
+                    <button class="google"></button>
+                    <button class="apple"></button>
+                </div>
+
+                <button type="submit" class="auth-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+</html>

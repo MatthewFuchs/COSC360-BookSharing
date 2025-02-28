@@ -1,0 +1,151 @@
+/* Home Page Specific Styles */
+.intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 3rem 10%;
+}
+
+.intro p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    max-width: 40%;
+}
+
+.introImage {
+    width: 50%;
+    max-width: 400px;
+}
+
+/* Welcome Section */
+.welcome {
+    text-align: center;
+    padding: 2rem 10%;
+}
+
+.welcome h2 {
+    font-size: 2rem;
+    color: #5f3f7e;
+}
+
+.welcome p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* How It Works */
+.how-it-works {
+    text-align: center;
+    padding: 3rem 10%;
+    background-color: #f9f9f9;
+}
+
+.how-it-works h2 {
+    font-size: 2rem;
+    color: #5f3f7e;
+    margin-bottom: 1rem;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.step {
+    text-align: center;
+    max-width: 250px;
+}
+
+.step img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+/* Popular Listings */
+.popular-listings {
+    text-align: center;
+    padding: 3rem 10%;
+}
+
+.popular-listings h2 {
+    font-size: 2rem;
+    color: #5f3f7e;
+    margin-bottom: 1rem;
+}
+
+.book-list {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.book {
+    text-align: center;
+    max-width: 150px;
+}
+
+.book img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Community Section */
+.community {
+    text-align: center;
+    padding: 3rem 10%;
+    background-color: #f9f9f9;
+}
+
+.community h2 {
+    font-size: 2rem;
+    color: #5f3f7e;
+    margin-bottom: 1rem;
+}
+
+.community .btn {
+    background: #5f3f7e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.community .btn:hover {
+    background: #4a2f61;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .intro {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro p {
+        max-width: 80%;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .introImage {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .steps {
+        flex-direction: column;
+    }
+
+    .book-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
