@@ -6,7 +6,7 @@
     <title>BookTrade - Login / Sign Up</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/login.css">
-    <script src="js/loadComponents.js"></script>
+    <script src="js/loadComponents.js"> </script>
 </head>
 <body>
 
@@ -17,12 +17,12 @@
         <!-- Login Section -->
         <div class="auth-section">
             <h2>Login</h2>
-            <form>
+            <form id="login-form" name="login-form" action="/login.php" onsubmit="return validateLoginForm()" method="post">
                 <label for="login-username">Username</label>
-                <input type="text" id="login-username" placeholder="Enter your username" required>
+                <input type="text" name="login-username" id="login-username" placeholder="Enter your username" required>
                 
                 <label for="login-password">Password</label>
-                <input type="password" id="login-password" placeholder="Enter your password" required>
+                <input type="password" name="login-password" id="login-password" placeholder="Enter your password" required>
                 
                 <p class="or">Or continue with</p>
                 <div class="social-login">
@@ -31,7 +31,7 @@
                     <button class="apple"></button>
                 </div>
 
-                <button type="submit" class="auth-btn">Login</button>
+                <input type="submit" class="auth-btn" value="Login">
             </form>
         </div>
 
@@ -41,18 +41,18 @@
         <!-- Sign Up Section -->
         <div class="auth-section">
             <h2>Sign Up</h2>
-            <form>
+            <form name="signup-form" action="/signup.php" onsubmit="return validateSignupForm()" method="post">
                 <label for="signup-email">Email</label>
-                <input type="email" id="signup-email" placeholder="Enter your email" required>
+                <input type="email" name="signup-email" id="signup-email" placeholder="Enter your email" required>
                 
                 <label for="signup-username">Username</label>
-                <input type="text" id="signup-username" placeholder="Choose a username" required>
+                <input type="text" name="signup-username" id="signup-username" placeholder="Choose a username" required>
                 
                 <label for="signup-password">Password</label>
-                <input type="password" id="signup-password" placeholder="Enter your password" required>
+                <input type="password" name="signup-password" id="signup-password" placeholder="Enter your password" required>
                 
                 <label for="signup-confirm-password">Confirm Password</label>
-                <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required>
+                <input type="password" name="signup-confirm-password" id="signup-confirm-password" placeholder="Confirm your password" required>
                 
                 <p class="or">Or continue with</p>
                 <div class="social-login">
@@ -61,12 +61,46 @@
                     <button class="apple"></button>
                 </div>
 
-                <button type="submit" class="auth-btn">Sign Up</button>
+                <input type="submit" class="auth-btn" value="Sign Up">
             </form>
         </div>
     </div>
 
     <div id="footer-placeholder"></div>
-
+<script>
+     function validateLoginForm() {
+            let username = document.forms["login-form"]["login-username"].value;
+            let password = document.forms["login-form"]["login-password"].value;
+            if(username == "" || password == "") {
+                alert("All fields must be filled out!");
+                return false;
+            }
+            if(password.length < 8) {
+                alert("Password must be at least 8 characters long!");
+                return false;
+            }
+            return true;
+        };
+        function validateSignupForm() {
+            let email = document.forms["signup-form"]["signup-email"].value;
+            let username = document.forms["signup-form"]["signup-username"].value;
+            let password = document.forms["signup-form"]["signup-password"].value;
+            let confirmPassword = document.forms["signup-form"]["signup-confirm-password"].value;
+            if(email == "" || username == "" || password == "" || confirmPassword == "") {
+                alert("All fields must be filled out!");
+                return false;
+            }
+            if(password != confirmPassword) {
+                alert("Passwords do not match!");
+                return false;
+            }
+            if(password.length < 8) {
+                alert("Password must be at least 8 characters long!");
+                return false;
+            }
+            return true;
+        };
+        
+</script>
 </body>
 </html>
