@@ -1,5 +1,4 @@
 /* Browse Page */
-/* Browse Page */
 body {
     background-color: #f9f9f9;
     background-image: 
@@ -194,6 +193,6 @@ body {
 .pagination span {
     font-size: 18px;
     font-weight: bold;
-    min-width: 80px; /* Keeps the text centered */
+    min-width: 80px;
     text-align: center;
 }
