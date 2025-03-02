@@ -1,0 +1,101 @@
+.header {
+    padding: 3px;
+    text-align: center;
+    background: #5f3f7e;
+    color: white;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.tnav a {
+    float: center;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 100px;
+    font-size: 20px;
+    width: 25%;
+    text-decoration: none;
+}
+.tnav a:hover {
+    background-color: white;
+    color: #5f3f7e;
+}
+
+.login {
+    color: #5f3f7e;
+    float: right;
+    margin-top: -20px;
+    button{
+        background-color: white;
+        font-size: 20px;
+        color: #5f3f7e;
+        border-radius: 10px;
+        width: 175px;
+        height: 50px;
+        
+    }
+    button:hover{
+        border-color: black;
+        font-size: 22px ;
+        border-width: 4px;
+    }
+}
+
+h2 {
+    color: #5f3f7e;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+	margin-left: 5%;
+}
+h3 {
+    color: #5f3f7e;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+	margin-left: 5%;
+}
+h6  {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.BookCover {
+    display: block;
+    margin: auto;
+}
+.BookCover {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+button {
+    width: 175px;
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    background-color: #5f3f7e;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 15px;
+    border: none;
+}
+
+.Readers {
+    margin-left: 5%;
+
+}
+h5 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #5f3f7e;
+    font-size: 25px;
+}
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    margin-top: -30px;
+    font-size: 16px;
+}
+
+.Reviewers img {
+    display: block;
+    margin: auto;
+}
