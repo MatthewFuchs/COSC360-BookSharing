@@ -64,14 +64,6 @@ body {
     color: #666;
 }
 
-/* Ratings */
-.book-rating {
-    margin-top: 10px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #ffcc00;
-}
-
 /* Description */
 .book-description {
     font-size: 1rem;
@@ -82,26 +74,11 @@ body {
     padding-right: 10px;
 }
 
-/* Preview Button */
-#preview-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 18px;
-    background: #ffcc00;
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-#preview-btn:hover {
-    background: #e6b800;
-}
 
 /* Wishlist & Notify Buttons */
 .book-actions {
     display: flex;
-    justify-content: center; /* Centering buttons */
+    justify-content: center;
     gap: 1rem;
     margin-top: 20px;
 }
@@ -112,68 +89,12 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    background: #5f3f7e; /* Set to purple */
+    background: #5f3f7e; 
     color: white;
     font-weight: bold;
     transition: background 0.3s ease-in-out;
 }
 
 .book-actions button:hover {
-    background: #4a2f61; /* Darker purple on hover */
-}
-
-/* Borrow Section */
-.borrow-section {
-    margin-top: 30px;
-    padding: 15px;
-    background: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.borrow-section h2 {
-    font-size: 1.5rem;
-    color: #5f3f7e;
-    margin-bottom: 10px;
-}
-
-.borrow-info {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-#borrow-list {
-    list-style: none;
-    padding: 0;
-}
-
-.borrow-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-}
-
-.borrow-item span {
-    font-size: 1rem;
-    color: #333;
-}
-
-.message-btn {
-    padding: 7px 12px;
-    background: #5f3f7e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.message-btn:hover {
-    background: #4a2f61;
+    background: #4a2f61; 
 }
