@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookTrade - Login / Sign Up</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/loadComponents.js"></script>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <div class="auth-wrapper">
+        <div class="auth-section">
+            <h1>Admin</h1>
+            <h2>Login</h2>
+            <form id="login-form" name="login-form" action="/login.php" onsubmit="return validateLoginForm()"
+                method="post">
+                <label for="login-username">Username</label>
+                <input type="text" name="login-username" id="login-username" placeholder="Enter your username" required>
+
+                <label for="login-password">Password</label>
+                <input type="password" name="login-password" id="login-password" placeholder="Enter your password"
+                    required>
+
+                <input type="submit" class="auth-btn" value="Login">
+            </form>
+        </div>
+    </div>
+    
+
+
+    <div id="footer-placeholder"></div>
+
+</body>
+<script>
+    function validateLoginForm() {
+            let username = document.forms["login-form"]["login-username"].value;
+            let password = document.forms["login-form"]["login-password"].value;
+            if(username == "" || password == "") {
+                alert("All fields must be filled out!");
+                return false;
+            }
+            if(password.length < 8) {
+                alert("Password must be at least 8 characters long!");
+                return false;
+            }
+            return true;
+        };
+</script>
+</html>
