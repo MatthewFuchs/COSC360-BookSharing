@@ -21,11 +21,6 @@ function fetchBooks(defaultQuery = "") {
     let selectedCategory = document.getElementById("category-filter").value;
     let searchStatus = document.getElementById("search-status");
 
-    if(!searchQuery.match(/^[A-Za-z0-9 ]*$/)) {
-        alert("Please enter a valid search query.");
-        return;
-    }
-
     console.clear();
     console.log("Fetching Books...");
 
@@ -96,7 +91,6 @@ function displayBooks(books) {
         let title = info.title || "Unknown Title";
         let authors = info.authors ? info.authors.join(", ") : "Unknown Author";
         let bookId = book.id;
-        let bookISBN = info.industryIdentifiers ? info.industryIdentifiers[0].identifier : "null";
 
         let bookElement = document.createElement("div");
         bookElement.classList.add("book");
@@ -105,7 +99,7 @@ function displayBooks(books) {
             <img src="${thumbnail}" alt="${title}">
             <p><strong>${title}</strong></p>
             <p>by ${authors}</p>
-            <a href="BookDetail.html?id=${bookISBN}">View Details</a>
+            <a href="book.html?id=${bookId}">View Details</a>
         `;
 
         bookContainer.appendChild(bookElement);
