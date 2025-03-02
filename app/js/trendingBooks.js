@@ -104,6 +104,7 @@ function displayBooks(books) {
         let title = info.title || "Unknown Title";
         let authors = info.authors ? info.authors.join(", ") : "Unknown Author";
         let bookId = book.id;
+        let bookISBN = info.industryIdentifiers ? info.industryIdentifiers[0].identifier : "null";
 
         let bookElement = document.createElement("div");
         bookElement.classList.add("book");
@@ -118,7 +119,7 @@ function displayBooks(books) {
             <p>Recent Likes: ${recentLikesReviews[curBook].likes}<br>
             Recent Reviews: ${recentLikesReviews[curBook].reviews}</p>
             <p>Most Recent Review: ${recentLikesReviews[curBook].rating} ${recentLikesReviews[curBook].user} says &quot${recentLikesReviews[curBook].comment}&quot</p>
-            <a href="book.html?id=${bookId}">View Details</a>
+            <a href="BookDetail.html?id=${bookISBN}">View Details</a>
         `;
 
         bookContainer.appendChild(bookElement);

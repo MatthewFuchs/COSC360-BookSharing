@@ -1,3 +1,8 @@
+
+document.addEventListener("DOMContentLoaded", function () {
+    loadComponents();
+});
+
 // Function to load header and footer dynamically
 function loadComponents() {
     fetch("nav/header.html")
@@ -90,4 +95,4 @@ function logoutUser() {
 }
 
 // Load components when the page loads
-window.onload = loadComponents;
+//window.onload = loadComponents;
