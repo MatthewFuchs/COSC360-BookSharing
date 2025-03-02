@@ -116,7 +116,7 @@
     align-self: stretch;
 }
 
-/* Responsive Design for Tablets (600px - 900px) */
+/* Responsive Design */
 @media (max-width: 900px) {
     .auth-wrapper {
         flex-direction: column;
@@ -136,7 +136,7 @@
     }
 }
 
-/* Mobile Optimizations (Up to 600px) */
+/* Mobile Optimizations */
 @media (max-width: 600px) {
     .auth-wrapper {
         width: 100%;

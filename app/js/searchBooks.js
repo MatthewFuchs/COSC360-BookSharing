@@ -1,7 +1,7 @@
 let currentPage = 0;
 const resultsPerPage = 18;
 
-// **Set a fixed, consistent category for non-fiction**
+// Google Books API doesn't have a "non-fiction" category, so we'll use "history" as the default
 const nonFictionDefaultCategory = "history"; 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -27,7 +27,7 @@ function fetchBooks(defaultQuery = "") {
     }
 
     console.clear();
-    console.log("🔍 Fetching Books...");
+    console.log("Fetching Books...");
 
     // Show search status
     searchStatus.textContent = "Searching...";
@@ -36,16 +36,16 @@ function fetchBooks(defaultQuery = "") {
     let apiUrl = "";
     let categoryFilter = "";
 
+    // ISBN Search
     if (/^\d{10,13}$/.test(searchQuery)) {
-        // **ISBN Search**
         apiUrl = `https://www.googleapis.com/books/v1/volumes?q=isbn:${searchQuery}`;
     } else {
-        // **Handling Categories**
+        // Handle "non-fiction" category
         if (selectedCategory === "non-fiction") {
-            // **Fixed, consistent category for non-fiction**
             categoryFilter = `+subject:${encodeURIComponent(nonFictionDefaultCategory)}`;
             searchQuery = "";
         } 
+        // Handle all other categories
         else if (selectedCategory !== "all") {
             categoryFilter = `+subject:${encodeURIComponent(selectedCategory)}`;
             searchQuery = ""; 
@@ -54,15 +54,8 @@ function fetchBooks(defaultQuery = "") {
             searchQuery = defaultQuery || searchQuery || "fiction"; // Default to fiction if empty
         }
 
-        // **Final API URL**
         apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(searchQuery)}${categoryFilter}&maxResults=${resultsPerPage}&printType=books&langRestrict=en&startIndex=${currentPage * resultsPerPage}`;
     }
-
-    // **Debugging Logs**
-    console.log("🔹 Selected Category:", selectedCategory);
-    console.log("🔹 Final Search Query:", searchQuery);
-    console.log("🔹 Final Category Filter:", categoryFilter);
-    console.log("🔹 API Request URL:", apiUrl);
 
     fetch(apiUrl)
         .then(response => {
@@ -70,7 +63,7 @@ function fetchBooks(defaultQuery = "") {
             return response.json();
         })
         .then(data => {
-            console.log("📄 API Response Data:", data);
+            console.log("API Response Data:", data);
             
             if (!data.items || data.items.length === 0) {
                 throw new Error("No books found for your search.");
@@ -79,7 +72,7 @@ function fetchBooks(defaultQuery = "") {
             updatePaginationButtons(data.totalItems || resultsPerPage);
         })
         .catch(error => {
-            console.error("❌ Error fetching books:", error);
+            console.error("Error fetching books:", error);
             document.querySelector(".book-grid").innerHTML = `<p class="no-results">${error.message}</p>`;
         })
         .finally(() => {
@@ -137,7 +130,7 @@ function updatePaginationButtons(totalItems) {
     document.getElementById("page-number").textContent = `Page ${currentPage + 1}`;
     document.getElementById("prev-page").disabled = currentPage === 0;
 
-    // Disable "Next" if we've reached the last page
+    // Disable "Next" if the last page is reached
     let totalPages = Math.ceil(totalItems / resultsPerPage);
     document.getElementById("next-page").disabled = currentPage >= totalPages - 1;
 }
