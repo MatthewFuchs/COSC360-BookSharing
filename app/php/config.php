@@ -1,14 +1,23 @@
 <?php
-$env = parse_ini_file($_SERVER['HOME'] . '/.env');
+$envPath = $_SERVER['HOME'] . '/.env';
 
-$servername = $env['DB_HOST'];
-$username = $env['DB_USER'];
-$password = $env['DB_PASS'];
-$dbname = $env['DB_NAME'];
+if (!file_exists($envPath)) {
+    die("Environment file not found at $envPath");
+}
+
+$env = parse_ini_file($envPath);
+
+if (!$env) {
+    die("Failed to parse .env file.");
+}
+
+$servername = $env['DB_HOST'] ?? 'localhost';
+$username = $env['DB_USER'] ?? '';
+$password = $env['DB_PASS'] ?? '';
+$dbname = $env['DB_NAME'] ?? '';
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
