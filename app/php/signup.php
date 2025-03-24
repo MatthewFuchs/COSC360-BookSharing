@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             "id" => $conn->insert_id,
             "username" => $username,
             "email" => $email,
-            'role' => $user['role']
+            'role' => "user"
         ];
         header("Location: ../browse.php");
         exit;
