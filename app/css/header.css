@@ -1,21 +1,19 @@
 /* Header */
 .header {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     padding: 1rem 5%;
     background: #5f3f7e;
     color: white;
-    font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
-    position: relative;
 }
 
 /* Header Title */
 .header h1 {
     margin: 0;
     font-size: 1.8rem;
-    flex-grow: 1;
+    flex-shrink: 0;
 }
 
 .header h1 a {
@@ -45,20 +43,28 @@
 /* Navigation Bar */
 .tnav {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-grow: 2;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.25rem;
+    flex-grow: 1;
+    padding: 0.25rem 0;
+    max-width: 100%;
 }
 
 /* Navigation Links */
 .tnav a {
     color: #f2f2f2;
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-decoration: none;
     font-weight: 500;
-    padding: 0.5rem 1rem;
-    position: relative;
+    padding: 0.4rem 0.6rem;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 100px;
+    overflow-wrap: break-word;
     transition: color 0.3s ease-in-out;
+    position: relative;
 }
 
 /* Underline Animation for Nav Links */
@@ -89,6 +95,7 @@
     font-size: 2rem;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
+    margin-left: auto;
 }
 
 /* Rotate the icon when the menu is open */
@@ -96,29 +103,23 @@
     transform: rotate(90deg);
 }
 
-/* Mobile Menu (Hidden by Default) */
+/* Mobile Navigation (Hidden by Default) */
 @media (max-width: 900px) {
-    .header {
-        padding: 1rem;
-    }
-
     .menu-toggle {
         display: block;
-        font-size: 2rem;
-        margin-left: auto;
     }
 
     .tnav {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: #5f3f7e;
         width: 100%;
         text-align: center;
-        padding: 1rem 0;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        background-color: #5f3f7e;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
     }
 
     .tnav.active {
@@ -127,27 +128,24 @@
 
     .tnav a {
         padding: 1rem;
-        display: block;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        width: 100%;
+        max-width: none;
+    }
+
+    .header {
+        flex-wrap: nowrap;
     }
 }
 
-/* Mobile Optimizations (Up to 600px) */
+/* Extra small screens */
 @media (max-width: 600px) {
-    .header {
-        font-size: 1.2rem;
-    }
-
     .header h1 {
         font-size: 1.5rem;
     }
 
-    .menu-toggle {
-        font-size: 2.5rem;
-    }
-
     .tnav a {
         font-size: 1rem;
-        padding: 0.8rem;
+        padding: 0.75rem;
     }
 }

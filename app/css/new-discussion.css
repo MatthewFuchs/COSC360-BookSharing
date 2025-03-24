@@ -1,0 +1,94 @@
+/* New Discussion Page */
+body {
+    background-color: #f5f5f5;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main Container */
+.discussion-container {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Heading */
+.discussion-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #5f3f7e;
+    margin-bottom: 30px;
+}
+
+/* Form Structure */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Input Fields */
+input[type="text"],
+textarea {
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #5f3f7e;
+    outline: none;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    padding: 12px;
+    background-color: #5f3f7e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    align-self: flex-end;
+}
+
+button[type="submit"]:hover {
+    background-color: #442c5c;
+}
+
+/* Success / Error Messages */
+.success-message {
+    color: #27ae60;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .discussion-container {
+        margin: 30px 15px;
+        padding: 25px;
+    }
+}
