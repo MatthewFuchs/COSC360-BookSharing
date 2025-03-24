@@ -1,7 +1,7 @@
 <?php
 echo "<h2>Testing database connection...</h2>";
 
-$envPath = $_SERVER['HOME'] . '/.env';
+$envPath = '/home/mfuchs02/.env'; 
 echo "<p>Looking for .env at: $envPath</p>";
 
 if (!file_exists($envPath)) {
