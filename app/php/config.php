@@ -1,12 +1,14 @@
 <?php
-$host = "localhost";
-$port = 3307;
-$dbname = "booktrade";
-$user = "root";
-$pass = "";
+$env = parse_ini_file($_SERVER['HOME'] . '/.env');
 
-$conn = new mysqli($host, $user, $pass, $dbname, $port);
+$servername = $env['DB_HOST'];
+$username = $env['DB_USER'];
+$password = $env['DB_PASS'];
+$dbname = $env['DB_NAME'];
 
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
