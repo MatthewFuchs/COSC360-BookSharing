@@ -1,0 +1,309 @@
+/* Admin Page */
+.admin-dashboard {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8f8f8;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Sidebar */
+.admin-sidebar {
+    width: 250px;
+    background-color: #2c1d3d;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    align-items: center;
+}
+
+.admin-profile {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.admin-avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-bottom: 0.5rem;
+}
+
+.admin-profile h2 {
+    margin: 0.5rem 0 0;
+    font-size: 1.2rem;
+}
+
+.admin-profile p {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.admin-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.nav-btn,
+.logout-btn {
+    padding: 0.75rem 1rem;
+    text-align: center;
+    background-color: #5f3f7e;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.nav-btn:hover,
+.logout-btn:hover {
+    background-color: #442e5c;
+}
+
+.nav-btn.active {
+    background-color: #fff;
+    color: #5f3f7e;
+}
+
+/* Main content */
+.admin-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-x: auto;
+}
+
+.dashboard-section {
+    display: none;
+}
+
+.dashboard-section.active {
+    display: block;
+}
+
+.dashboard-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    background-color: #5f3f7e;
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    margin-left: 0.5rem;
+}
+
+/* Table */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.admin-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    color: #333;
+}
+
+.admin-table td {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Role styling */
+.role-tag {
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.role-tag.admin {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+.role-tag.user {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+/* Action buttons */
+.edit-btn,
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.edit-btn:hover {
+    color: #3498db;
+}
+
+.delete-btn:hover {
+    color: #e74c3c;
+}
+
+.toggle-status-btn {
+    padding: 6px 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.toggle-status-btn[data-status="disable"] {
+    background-color: #e74c3c; 
+    color: white;
+}
+
+.toggle-status-btn[data-status="disable"]:hover {
+    background-color: #c0392b;
+}
+
+.toggle-status-btn[data-status="enable"] {
+    background-color: #2ecc71; 
+    color: white;
+}
+
+.toggle-status-btn[data-status="enable"]:hover {
+    background-color: #27ae60;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 5%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c1d3d;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-content label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.modal-content input,
+.modal-content select {
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+}
+
+.modal-content button[type="submit"] {
+    margin-top: 1rem;
+    padding: 0.6rem 1rem;
+    background-color: #5f3f7e;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #442e5c;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 1.6rem;
+    color: #444;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-dashboard {
+        flex-direction: column;
+    }
+
+    .admin-sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 1rem;
+    }
+
+    .admin-content {
+        padding: 1rem;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+}

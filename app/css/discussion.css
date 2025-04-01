@@ -1,107 +1,120 @@
 /* Discussion Page */
 body {
     background-color: #f9f9f9;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
 }
 
-/* Main Container */
+/* Container */
 .discussion-container {
-    max-width: 800px;
+    max-width: 850px;
     margin: 40px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px 25px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Discussion Title */
-h1 {
+/* Title */
+.discussion-container h1 {
     text-align: center;
+    font-size: 2rem;
     color: #5f3f7e;
+    margin-bottom: 1.5rem;
 }
 
 /* Original Post */
 .original-post {
-    padding: 20px;
-    background: #f1f1f1;
+    background: #f2eef7;
+    padding: 20px 25px;
+    border-left: 5px solid #5f3f7e;
     border-radius: 8px;
-    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.original-post p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
 }
 
 .post-author {
-    display: block;
     font-size: 0.9rem;
     color: #666;
-    margin-top: 5px;
 }
 
 /* Reply Section */
 .reply-section {
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-#reply-input {
-    padding: 10px;
+.reply-section textarea {
+    padding: 12px;
     width: 100%;
+    font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
+    border-radius: 6px;
+    min-height: 100px;
     resize: vertical;
-    min-height: 80px;
 }
 
-#post-reply {
-    padding: 10px 15px;
-    background: #5f3f7e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
+.reply-section button {
     align-self: flex-end;
+    background-color: #5f3f7e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 }
 
-#post-reply:hover {
-    background: #4a2f61;
+.reply-section button:hover {
+    background-color: #4b2d63;
 }
 
 /* Replies Section */
 .replies-container {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .replies-container h2 {
     text-align: center;
+    font-size: 1.5rem;
     color: #5f3f7e;
+    margin-bottom: 1.2rem;
 }
 
-#replies-list {
+.replies-container ul {
     list-style: none;
     padding: 0;
 }
 
+/* Individual Reply */
 .reply {
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    background: #f8f8f8;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid #ccc;
+    transition: border-color 0.2s;
 }
 
-.reply .reply-content {
+.reply:hover {
+    border-left-color: #5f3f7e;
+}
+
+.reply p {
+    margin-bottom: 0.4rem;
     font-size: 1rem;
+    line-height: 1.5;
 }
 
-.reply .reply-author {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* Nested Replies */
-.nested-reply {
-    margin-left: 30px;
-    background: #ececec;
-    padding: 10px;
-    border-radius: 5px;
+.reply-author {
+    font-size: 0.85rem;
+    color: #777;
 }

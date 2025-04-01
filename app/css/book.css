@@ -98,3 +98,69 @@ body {
 .book-actions button:hover {
     background: #4a2f61; 
 }
+
+/* Borrow Listings Section */
+#borrow-listings-section {
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+    padding-top: 30px;
+}
+
+#borrow-listings-section h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #5f3f7e;
+    margin-bottom: 20px;
+}
+
+/* Borrow Listings Container */
+#borrow-listings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Individual Listing Card */
+.borrow-card {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 240px;
+    padding: 15px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.borrow-card img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+/* Listing Info */
+.borrow-info p {
+    font-size: 0.95rem;
+    color: #333;
+    margin: 5px 0;
+}
+
+/* Message Button */
+.message-btn {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 8px 14px;
+    background: #5f3f7e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.2s ease-in-out;
+}
+
+.message-btn:hover {
+    background-color: #4a2f61;
+}

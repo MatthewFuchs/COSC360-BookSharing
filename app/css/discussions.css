@@ -82,3 +82,30 @@ h1 {
     font-size: 0.9rem;
     color: #666;
 }
+
+/* Pagination */
+.pagination {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 0 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.pagination a:hover {
+    background-color: #dcdcdc;
+}
+
+.pagination a.active {
+    background-color: #5f3f7e;
+    color: white;
+    font-weight: bold;
+}

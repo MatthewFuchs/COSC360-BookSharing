@@ -1,79 +1,67 @@
 document.addEventListener("DOMContentLoaded", function () {
     const discussionList = document.getElementById("discussion-threads");
-    const reviewList = document.getElementById("recent-reviews");
     const searchInput = document.getElementById("search-discussions");
     const searchButton = document.getElementById("search-btn");
     const viewMoreButton = document.getElementById("view-more");
     const startDiscussionButton = document.getElementById("start-discussion");
 
-    // Temporary Mock Data for Discussions & Reviews
-    let discussions = [
-        { title: "Best Sci-Fi Books?", id: 1, author: "Alice", likes: 5 },
-        { title: "Underrated Fantasy Reads?", id: 2, author: "Bob", likes: 8 },
-        { title: "How to Start Reading Classics?", id: 3, author: "Charlie", likes: 4 }
-    ];
+    let discussions = [];
 
-    let reviews = [
-        { book: "Dune", user: "Dave", rating: "⭐⭐⭐⭐⭐", comment: "Amazing world-building!" },
-        { book: "The Hobbit", user: "Emma", rating: "⭐⭐⭐⭐", comment: "A great adventure story." },
-        { book: "1984", user: "Frank", rating: "⭐⭐⭐⭐⭐", comment: "A chilling dystopian novel." }
-    ];
+    // Fetch discussions from backend
+    function fetchDiscussions() {
+        fetch("php/get_discussions.php")
+            .then(res => res.json())
+            .then(data => {
+                discussions = data;
+                renderDiscussions();
+            })
+            .catch(err => {
+                console.error("Failed to load discussions:", err);
+                discussionList.innerHTML = "<li>Error loading discussions.</li>";
+            });
+    }
 
-    // Function to Load Discussions
-    function loadDiscussions(filter = "") {
-        discussionList.innerHTML = ""; // Clear list
+    // Render filtered discussions
+    function renderDiscussions(filter = "") {
+        discussionList.innerHTML = "";
 
-        let filteredDiscussions = discussions.filter(d => 
+        const filtered = discussions.filter(d => 
             d.title.toLowerCase().includes(filter.toLowerCase())
         );
 
-        filteredDiscussions.forEach(discussion => {
-            let li = document.createElement("li");
+        if (filtered.length === 0) {
+            discussionList.innerHTML = "<p class='no-results'>No discussions found.</p>";
+            return;
+        }
+
+        filtered.forEach(d => {
+            const li = document.createElement("li");
             li.innerHTML = `
-                <a href="discussion.html?id=${discussion.id}">
-                    <h4>${discussion.title}</h4>
+                <a href="discussion.php?id=${d.id}">
+                    <h4>${d.title}</h4>
                 </a>
-                <p>By ${discussion.author} • 👍 ${discussion.likes}</p>
+                <p>By ${d.username} • ${new Date(d.created_at).toLocaleDateString()}</p>
             `;
             discussionList.appendChild(li);
         });
-
-        if (filteredDiscussions.length === 0) {
-            discussionList.innerHTML = "<p class='no-results'>No discussions found.</p>";
-        }
     }
 
-    // Function to Load Reviews
-    function loadReviews() {
-        reviewList.innerHTML = ""; // Clear list
-
-        reviews.forEach(review => {
-            let li = document.createElement("li");
-            li.innerHTML = `
-                <strong>${review.book}</strong> - ${review.rating} <br>
-                <em>by ${review.user}:</em> "${review.comment}"
-            `;
-            reviewList.appendChild(li);
-        });
-    }
-
-    // Search Functionality
+    // Search functionality
     searchButton.addEventListener("click", () => {
-        let query = searchInput.value.trim();
-        loadDiscussions(query);
+        const query = searchInput.value.trim();
+        renderDiscussions(query);
     });
 
-    // View More Discussions (Redirect Later)
+    // View More 
     viewMoreButton.addEventListener("click", () => {
-        window.location.href = "discussions.html"; // Future implementation
+        window.location.href = "discussions.php";
     });
 
-    // Start a Discussion (Redirect Later)
+    // Start New Discussion
     startDiscussionButton.addEventListener("click", () => {
-        window.location.href = "new-discussion.html"; // Future implementation
+        window.location.href = "new-discussion.php";
     });
 
-    // Load Initial Data
-    loadDiscussions();
-    loadReviews();
+    // Initial load
+    fetchDiscussions();
 });

@@ -60,19 +60,13 @@ function fetchBooks(defaultQuery = "") {
         apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(searchQuery)}${categoryFilter}&maxResults=${resultsPerPage}&printType=books&langRestrict=en&startIndex=${currentPage * resultsPerPage}`;
     }
 
-    // **Debugging Logs**
-    console.log("🔹 Selected Category:", selectedCategory);
-    console.log("🔹 Final Search Query:", searchQuery);
-    console.log("🔹 Final Category Filter:", categoryFilter);
-    console.log("🔹 API Request URL:", apiUrl);
-
     fetch(apiUrl)
         .then(response => {
-            console.log("🔹 API Response Status:", response.status);
+            console.log("API Response Status:", response.status);
             return response.json();
         })
         .then(data => {
-            console.log("📄 API Response Data:", data);
+            console.log("API Response Data:", data);
 
             if (!data.items || data.items.length === 0) {
                 throw new Error("No books found for your search.");
@@ -80,7 +74,7 @@ function fetchBooks(defaultQuery = "") {
             displayBooks(data.items);
         })
         .catch(error => {
-            console.error("❌ Error fetching books:", error);
+            console.error("Error fetching books:", error);
             document.querySelector(".book-grid").innerHTML = `<p class="no-results">${error.message}</p>`;
         })
         .finally(() => {

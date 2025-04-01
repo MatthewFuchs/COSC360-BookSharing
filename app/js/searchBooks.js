@@ -54,7 +54,7 @@ function fetchBooks(defaultQuery = "") {
 
     fetch(apiUrl)
         .then(response => {
-            console.log("🔹 API Response Status:", response.status);
+            console.log("API Response Status:", response.status);
             return response.json();
         })
         .then(data => {
@@ -99,7 +99,7 @@ function displayBooks(books) {
             <img src="${thumbnail}" alt="${title}">
             <p><strong>${title}</strong></p>
             <p>by ${authors}</p>
-            <a href="book.html?id=${bookId}">View Details</a>
+            <a href="book.php?id=${bookId}">View Details</a>
         `;
 
         bookContainer.appendChild(bookElement);

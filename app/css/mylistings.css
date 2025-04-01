@@ -1,0 +1,124 @@
+/* My Listings Page */
+.mylistings-container {
+    max-width: 1000px;
+    margin: 2em auto;
+    padding: 1em;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Headings */
+.mylistings-container h1,
+.mylistings-container h2 {
+    color: #5f3f7e;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/* Search input and button */
+.search-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2em;
+}
+
+.search-section input {
+    padding: 10px;
+    width: 300px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.search-section button {
+    padding: 10px 16px;
+    font-size: 1rem;
+    background-color: #5f3f7e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.search-section button:hover {
+    background-color: #4a2f61;
+}
+
+/* Book grid layout */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.5em;
+}
+
+/* Book card */
+.book {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1em;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.book img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    margin-bottom: 0.5em;
+}
+
+/* Book title and author */
+.book p {
+    margin: 0.25em 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Strong title */
+.book p strong {
+    display: block;
+    font-size: 1rem;
+    color: #222;
+}
+
+/* Buttons inside cards */
+.book button {
+    margin-top: 0.5em;
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    background-color: #5f3f7e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.book button:hover {
+    background-color: #442e5c;
+}
+
+/* For error messages or empty states */
+.no-results {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .search-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-section input {
+        width: 100%;
+    }
+}
