@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inputName']) && $_POS
     $real_user = htmlspecialchars($row['username']);
 
     if ($result->num_rows == 1) {
-        echo "<button class='real_contact' id="$real_user">$real_user</button>";
+        echo "<button class='real_contact' id='" . $real_user . "'>" . $real_user . "</button>";
     } else {
         echo "<div>Invalid Username</div>";
     }

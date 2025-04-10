@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once 'php/config.php';
 $isLoggedIn = isset($_SESSION["user"]);
 ?>
 
@@ -30,57 +30,57 @@ $isLoggedIn = isset($_SESSION["user"]);
     </div>
 
     <div class="chatlog">
+        <h2>Chat History</h2>
+        <script>
+            const bCont = document.getElementById('contacts');
 
-    <script>
-        const bCont = document.getElementById('contacts');
+            bCont.addEventListener('click', (event) => {
 
-        bCont.addEventListener('click', (event) => {
-
-            $messagelist = [];
-            
-            if (event.target && event.target.classList.contains('real_contact')) {
-             
-                const bId = event.target.getAttribute('id');
-
-                $sentst = $conn->prepare("SELECT * FROM messagelog WHERE sending_userId = ? AND reciv_userId = ?");
-                $sentst->bind_param("ss", $isLoggedIn, $bId);
-                $resultsent = $sentst->get_result();
-
-                if ($sentst->execute()) {
-                } else {
-                echo "Error: " . $sentst->error;
-                }
-
-                if ($resultsent->num_rows > 0) {
-                    while ($row = $resultsent->fetch_assoc()) {
-                        $messagelist = $row['textmessage'];
-                    }
-                }
+                $messagelist = [];
                 
-                //check for recieved messages from this user also
-                $recst = $conn->prepare("SELECT * FROM messagelog WHERE sending_userId = ? AND reciv_userId = ?");
-                $recst->bind_param("ss", $bId, $isLoggedIn);
-                $resultrec = $recst->get_result();
-
-                if ($recst->execute()) {
-                } else {
-                echo "Error: " . $recst->error;
-                }
-
-                if ($resultrec->num_rows > 0) {
-                    while ($row = $resultrec->fetch_assoc()) {
-                        $messagelist = $row['textmessage'];
-                    }
-                }
+                if (event.target && event.target.classList.contains('real_contact')) {
                 
-                // create messages
-                $messagelist.forEach(element => {
-                    echo "<div class='sentmessage'>element</div>";
-                });     
-            }
+                    const bId = event.target.getAttribute('id');
 
-        });
-    </script>
+                    $sentst = $conn->prepare("SELECT * FROM messagelog WHERE sending_userId = ? AND reciv_userId = ?");
+                    $sentst->bind_param("ss", $isLoggedIn, $bId);
+                    $resultsent = $sentst->get_result();
+
+                    if ($sentst->execute()) {
+                    } else {
+                    echo "Error: " . $sentst->error;
+                    }
+
+                    if ($resultsent->num_rows > 0) {
+                        while ($row = $resultsent->fetch_assoc()) {
+                            $messagelist = $row['textmessage'];
+                        }
+                    }
+                    
+                    //check for recieved messages from this user also
+                    $recst = $conn->prepare("SELECT * FROM messagelog WHERE sending_userId = ? AND reciv_userId = ?");
+                    $recst->bind_param("ss", $bId, $isLoggedIn);
+                    $resultrec = $recst->get_result();
+
+                    if ($recst->execute()) {
+                    } else {
+                    echo "Error: " . $recst->error;
+                    }
+
+                    if ($resultrec->num_rows > 0) {
+                        while ($row = $resultrec->fetch_assoc()) {
+                            $messagelist = $row['textmessage'];
+                        }
+                    }
+                    
+                    // create messages
+                    $messagelist.forEach(element => {
+                        echo "<div class='sentmessage'>element</div>";
+                    });     
+                }
+
+            });
+        </script>
 
     </div>
 
@@ -92,34 +92,34 @@ $isLoggedIn = isset($_SESSION["user"]);
         </form>
     </div>
 
-            
-    <div id="ol"></div>
+                
+        <div id="ol"></div>
 
-    <div id="pf">
-    <form method="post" action="">
-        <label for="inputName">Input new contact Username</label><br>
-        <input type="text" name="inputName" required><br><br>
-        <button type="submit" name="submitName">Submit</button>
-    </form>
-    </div>
+        <div id="pf">
+        <form method="post" action="">
+            <label for="inputName">Input new contact Username</label><br>
+            <input type="text" name="inputName" required><br><br>
+            <button type="submit" name="submitName">Submit</button>
+        </form>
+        </div>
 
-    <script>
-        const button = document.getElementById('new');
-        const pF = document.getElementById('pf');
-        const ovl = document.getElementById('ol');
+        <script>
+            const button = document.getElementById('new');
+            const pF = document.getElementById('pf');
+            const ovl = document.getElementById('ol');
 
-        button.addEventListener('click', () => {
-            pF.style.display = 'block';
-            ovl.style.display = 'block';
-        });
+            button.addEventListener('click', () => {
+                pF.style.display = 'block';
+                ovl.style.display = 'block';
+            });
 
-        ovl.addEventListener('click', () => {
-            pF.style.display = 'none';
-            ovl.style.display = 'none';
-        });
-    </script>
+            ovl.addEventListener('click', () => {
+                pF.style.display = 'none';
+                ovl.style.display = 'none';
+            });
+        </script>
 
-    
+        
 
 </div>
 
