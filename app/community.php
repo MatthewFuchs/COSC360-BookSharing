@@ -31,14 +31,6 @@
             <button id="view-more">View More</button>
         </div>
 
-        <!-- Recent Reviews -->
-        <div class="review-section">
-            <h3>Recent Book Reviews</h3>
-            <ul id="recent-reviews">
-                <!-- Reviews will be dynamically loaded here -->
-            </ul>
-        </div>
-
         <!-- Start New Discussion -->
         <div class="new-discussion">
             <button id="start-discussion">Start a Discussion</button>
