@@ -127,63 +127,67 @@
   background-color: #5630c9;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .message-container {
-    flex-direction: column;
-    height: auto;
+    margin: 10px;
+    border-radius: 8px;
   }
 
-  .contacts-list {
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px;
-    overflow-x: auto;
-    border-right: none;
-    border-bottom: 1px solid #eee;
-  }
-
-  .real_contact {
-    flex: 1 1 45%;
-    justify-content: flex-start;
+  .chatlog {
+    padding-right: 0;
   }
 
   .chat-panel {
-    padding: 15px;
+    padding: 10px;
   }
 
-  .textinput {
-    flex-direction: column;
-    align-items: stretch;
+  .real_contact {
+    font-size: 0.9rem;
+    padding: 10px;
   }
 
   .textinput textarea {
-    height: auto;
+    font-size: 0.95rem;
+    padding: 10px 14px;
   }
 
   .textinput button {
-    width: 100%;
+    font-size: 0.95rem;
+    padding: 10px 16px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
+  .textinput textarea {
+    font-size: 0.85rem;
+  }
+
+  .textinput button {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
   .real_contact {
-    flex: 1 1 100%;
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+
+  .chat-panel {
+    padding: 8px;
   }
 
   .sentmessage,
   .receivedmessage {
-    font-size: 14px;
-    max-width: 90%;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    border-radius: 16px;
   }
 
-  .textinput textarea {
-    font-size: 14px;
+  .chatlog {
+    max-height: 50vh;
   }
 
-  .textinput button {
-    font-size: 14px;
-    padding: 10px;
+  .message-container {
+    margin: 8px;
   }
 }

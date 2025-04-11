@@ -20,6 +20,7 @@
     justify-content: center;
     gap: 10px;
     margin-bottom: 2em;
+    flex-wrap: wrap;
 }
 
 .search-section input {
@@ -28,6 +29,8 @@
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 6px;
+    flex-grow: 1;
+    min-width: 200px;
 }
 
 .search-section button {
@@ -38,6 +41,7 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .search-section button:hover {
@@ -111,14 +115,43 @@
     color: #888;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
+/* Responsive: small screens */
+@media (max-width: 768px) {
     .search-section {
         flex-direction: column;
         align-items: center;
     }
 
-    .search-section input {
+    .search-section input,
+    .search-section button {
         width: 100%;
+        max-width: 100%;
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .mylistings-container {
+        padding: 0.75em;
+    }
+
+    .search-section input,
+    .search-section button {
+        font-size: 0.95rem;
+        padding: 8px;
+    }
+
+    .book button {
+        padding: 7px 8px;
+        font-size: 0.85rem;
+    }
+
+    .book p,
+    .book p strong {
+        font-size: 0.9rem;
     }
 }
