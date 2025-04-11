@@ -109,3 +109,51 @@ h1 {
     color: white;
     font-weight: bold;
 }
+
+@media (max-width: 768px) {
+    .discussions-container {
+        margin: 30px 15px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    .search-bar button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .discussion-title {
+        font-size: 1.1rem;
+    }
+
+    .discussion-info {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .search-bar {
+        gap: 8px;
+    }
+
+    .search-bar button {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .pagination a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}

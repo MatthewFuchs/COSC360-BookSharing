@@ -2,7 +2,6 @@
 if (session_status() === PHP_SESSION_NONE) session_start();
 $user = $_SESSION['user'] ?? null;
 ?>
-<script src="js/headerMenu.js" defer></script>
 <link rel="stylesheet" href="css/header.css">
 <div class="header">
     <h1><a href="index.php">BookTrade</a></h1>
@@ -26,5 +25,4 @@ $user = $_SESSION['user'] ?? null;
         <?php endif; ?>
     </div>
 </div>
-
 <script src="js/headerMenu.js" defer></script>
