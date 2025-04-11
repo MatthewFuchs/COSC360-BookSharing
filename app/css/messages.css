@@ -1,0 +1,128 @@
+.message-container {
+  display: flex;
+  height: calc(100vh - 100px);
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.contacts-list {
+  width: 28%;
+  background-color: #fafafa;
+  border-right: 1px solid #eee;
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.real_contact {
+  padding: 12px;
+  background-color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s ease;
+}
+
+.real_contact:hover,
+.real_contact.active {
+  background-color: #eee6fd;
+}
+
+.real_contact img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chat-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fcfcff;
+  position: relative;
+}
+
+.chatlog {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 10px 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sentmessage,
+.receivedmessage {
+  padding: 12px 16px;
+  margin: 4px 0;
+  border-radius: 20px;
+  max-width: 70%;
+  font-size: 15px;
+  word-wrap: break-word;
+}
+
+.sentmessage {
+  align-self: flex-end;
+  background-color: #d9fbe3;
+}
+
+.receivedmessage {
+  align-self: flex-start;
+  background-color: #f1f1f1;
+}
+
+.textinput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  gap: 12px;
+  position: sticky;
+  bottom: 0;
+  background-color: #fcfcff;
+  border-top: 1px solid #e0e0e0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.textinput textarea {
+  flex: 1;
+  resize: none;
+  padding: 12px 16px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  height: 45px;
+  line-height: 1.5;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.textinput button {
+  flex-shrink: 0;
+  height: 45px;
+  white-space: nowrap;
+  padding: 0 20px;
+  background-color: #6a40d7;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.textinput button:hover {
+  background-color: #5630c9;
+}

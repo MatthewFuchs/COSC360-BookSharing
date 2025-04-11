@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchBookDetails();
 });
 
-// Fetch book details and matching listings
+// Load Book Info + Borrow Listings
 function fetchBookDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const bookId = urlParams.get("id");
@@ -40,6 +40,7 @@ function displayBookDetails(book) {
     `;
 }
 
+// Borrow Listings
 function fetchBorrowListings(bookId) {
     fetch(`php/get_book_listings.php?book_id=${encodeURIComponent(bookId)}`)
         .then(res => res.json())
@@ -64,9 +65,43 @@ function displayBorrowListings(listings) {
             <div class="borrow-info">
                 <p><strong>${item.title}</strong> by ${item.author}</p>
                 <p>Listed by <strong>${item.username}</strong></p>
-                ${isLoggedIn ? `<a href="message.php?to=${item.user_id}" class="message-btn">Message</a>` : `<p><em><a href="login.php">Log in</a> to message.</em></p>`}
+                ${isLoggedIn ? `<a href="messages.php?user=${item.user_id}" class="message-btn">Message</a>` : `<p><em><a href="login.php">Log in</a> to message.</em></p>`}
             </div>
         `;
         section.appendChild(div);
     });
+}
+
+// Wishlist Functions
+function getBookInfoForWishlist() {
+    const title = document.querySelector(".book-title")?.textContent || "Unknown";
+    const urlParams = new URLSearchParams(window.location.search);
+    const bookId = urlParams.get("id");
+    return { bookId, title };
+}
+
+function addToWishlist() {
+    const { bookId, title } = getBookInfoForWishlist();
+
+    fetch("php/add_to_wishlist.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `book_id=${bookId}&title=${encodeURIComponent(title)}&notify=false`
+    })
+    .then(res => res.text())
+    .then(alert)
+    .catch(err => console.error("Error adding to wishlist:", err));
+}
+
+function notifyWhenAvailable() {
+    const { bookId, title } = getBookInfoForWishlist();
+
+    fetch("php/add_to_wishlist.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `book_id=${bookId}&title=${encodeURIComponent(title)}&notify=true`
+    })
+    .then(res => res.text())
+    .then(alert)
+    .catch(err => console.error("Error setting notification:", err));
 }
