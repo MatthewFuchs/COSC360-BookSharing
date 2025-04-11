@@ -118,3 +118,58 @@ body {
     font-size: 0.85rem;
     color: #777;
 }
+
+@media (max-width: 768px) {
+    .discussion-container {
+        margin: 20px 15px;
+        padding: 20px 15px;
+    }
+
+    .discussion-container h1 {
+        font-size: 1.6rem;
+    }
+
+    .original-post p {
+        font-size: 1rem;
+    }
+
+    .reply-section textarea {
+        font-size: 0.95rem;
+    }
+
+    .reply-section button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .replies-container h2 {
+        font-size: 1.3rem;
+    }
+
+    .reply p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .discussion-container {
+        padding: 15px 10px;
+    }
+
+    .discussion-container h1 {
+        font-size: 1.4rem;
+    }
+
+    .reply-section textarea {
+        min-height: 80px;
+    }
+
+    .reply-section button {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .reply p {
+        font-size: 0.9rem;
+    }
+}

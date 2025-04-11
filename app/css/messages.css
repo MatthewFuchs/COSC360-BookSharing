@@ -126,3 +126,64 @@
 .textinput button:hover {
   background-color: #5630c9;
 }
+
+@media (max-width: 900px) {
+  .message-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .contacts-list {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    overflow-x: auto;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .real_contact {
+    flex: 1 1 45%;
+    justify-content: flex-start;
+  }
+
+  .chat-panel {
+    padding: 15px;
+  }
+
+  .textinput {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .textinput textarea {
+    height: auto;
+  }
+
+  .textinput button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .real_contact {
+    flex: 1 1 100%;
+  }
+
+  .sentmessage,
+  .receivedmessage {
+    font-size: 14px;
+    max-width: 90%;
+  }
+
+  .textinput textarea {
+    font-size: 14px;
+  }
+
+  .textinput button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

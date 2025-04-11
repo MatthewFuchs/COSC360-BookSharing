@@ -25,3 +25,28 @@
     font-size: 12px;
     color: #777;
   }
+
+  @media (max-width: 768px) {
+    .notification-page {
+      margin: 30px 15px;
+      padding: 15px;
+    }
+  
+    .notification p {
+      font-size: 0.95rem;
+    }
+  
+    .notification span {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .notification {
+      padding: 12px 15px;
+    }
+  
+    .notification p {
+      font-size: 0.9rem;
+    }
+  }

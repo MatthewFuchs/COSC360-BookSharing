@@ -164,3 +164,58 @@ body {
 .message-btn:hover {
     background-color: #4a2f61;
 }
+
+@media (max-width: 768px) {
+    .book-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .book-info img {
+        width: 200px;
+    }
+
+    .book-text {
+        padding-top: 15px;
+        text-align: center;
+    }
+
+    .book-title {
+        font-size: 1.6rem;
+    }
+
+    .book-author {
+        font-size: 1rem;
+    }
+
+    .book-description {
+        max-height: none;
+        overflow-y: visible;
+        padding-right: 0;
+    }
+
+    .borrow-card {
+        width: 90%;
+    }
+}
+
+@media (max-width: 500px) {
+    .book-title {
+        font-size: 1.4rem;
+    }
+
+    .book-author {
+        font-size: 0.95rem;
+    }
+
+    .book-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-actions button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
