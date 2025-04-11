@@ -32,6 +32,7 @@ include 'nav/header.php';
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/profile.css" />
     <script src="js/headerMenu.js" defer></script>
+    <script src="js/profile.js" defer></script>
 </head>
 <body>
 

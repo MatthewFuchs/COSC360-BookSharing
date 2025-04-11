@@ -14,7 +14,6 @@ $phone = trim($_POST['phone_number']);
 $location = trim($_POST['location']);
 
 $profilePicPath = null;
-$uploadError = null;
 
 // Handle image upload
 if (isset($_FILES['profile-picture']) && $_FILES['profile-picture']['error'] === UPLOAD_ERR_OK) {
@@ -58,8 +57,12 @@ if ($profilePicPath) {
 }
 
 if ($stmt->execute()) {
-    $_SESSION['user']['email'] = $email;
+    // Update session to reflect new values
     $_SESSION['user']['full_name'] = $full_name;
+    $_SESSION['user']['email'] = $email;
+    $_SESSION['user']['phone_number'] = $phone;
+    $_SESSION['user']['location'] = $location;
+
     if ($profilePicPath) {
         $_SESSION['user']['profile_image'] = $profilePicPath;
     }
