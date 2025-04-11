@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const replyInput = document.getElementById('replyinput');
     const chatHeader = document.getElementById('chat-header');
     let activeContact = null;
+    let pollInterval = null;
 
+    // Select a contact
     bCont.addEventListener('click', (event) => {
         if (event.target && event.target.classList.contains('real_contact')) {
             document.querySelectorAll('.real_contact').forEach(el => el.classList.remove('active'));
@@ -16,12 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
             chatHeader.textContent = 'Chat with ' + event.target.textContent;
 
             fetchMessages(activeContact);
+
+            if (pollInterval) clearInterval(pollInterval);
+
+            pollInterval = setInterval(() => {
+                if (activeContact) {
+                    fetchMessages(activeContact);
+                }
+            }, 5000);
         }
     });
 
     form.addEventListener('submit', e => {
         e.preventDefault();
-
         const msg = document.getElementById('input_message').value.trim();
         if (!msg || !activeContact) return;
 
@@ -40,12 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
     function fetchMessages(contactId) {
         fetch(`php/get_messages.php?contact_id=${contactId}`)
             .then(res => res.json())
             .then(messages => {
-                chatLog.innerHTML = ''; 
+                chatLog.innerHTML = '';
                 messages.forEach(msg => {
                     const div = document.createElement('div');
                     div.className = msg.sending_userId == currentUserId ? 'sentmessage' : 'receivedmessage';
@@ -56,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(err => {
                 console.error("Error loading messages:", err);
-                chatLog.innerHTML = "<p class='error'>Unable to load messages.</p>";
             });
     }
 });
